@@ -29,16 +29,18 @@ RUN \
     # ダウンロードに使ったソフトを削除
     apk del .fetch-deps && \
     # latexmkrcに記入
-    { \
-        echo "#!/usr/bin/env perl"; \
-        echo "\$latex            = 'uplatex -synctex=1 -halt-on-error';"; \
-        echo "\$bibtex           = 'upbibtex';"; \
-        echo "\$biber            = 'biber --bblencoding=utf8 -u -U --output_safechars';"; \
-        echo "\$dvipdf           = 'dvipdfmx %O -o %D %S';"; \
-        echo "\$makeindex        = 'mendex %O -o %D %S';"; \
-        echo "\$max_repeat       = 5;"; \
-        echo "\$pdf_mode         = 3;"; \
-        echo "\$pvc_view_file_via_temporary = 0;"; \
-    } >> /root/.latexmkrc
+    printf "%s\n" \
+        "#!/usr/bin/env perl" \
+        >> /root/.latexmkrc && \
+    printf "%s\t%s\n" \
+        "\$latex"   "= 'uplatex -synctex=1 -halt-on-error';" \
+        "\$bibtex"  "= 'upbibtex';" \
+        "\$biber"   "= 'biber --bblencoding=utf8 -u -U --output_safechars';" \
+        "\$dvipdf"  "= 'dvipdfmx %O -o %D %S';" \
+        "\$makeindex"   "= 'mendex %O -o %D %S';" \
+        "\$max_repeat"  "= 5;" \
+        "\$pdf_mode"    "= 3;" \
+        "\$pvc_view_file_via_temporary" "= 0;" \
+        >> /root/.latexmkrc
 
 WORKDIR /workdir
