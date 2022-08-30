@@ -4,9 +4,13 @@ This is a Docker image for TeX Live.
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [VScode setting](#vscode-setting)
+- [latex-env](#latex-env)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [VScode setting](#vscode-setting)
+    - [for MacOS](#for-macos)
+    - [for Windows](#for-windows)
 
 ## Install
 
@@ -34,7 +38,7 @@ install latex-workshop
 
 ### for MacOS
 
-add bellow sentences to setting.json ([ Ctrl+, ] → [open setting(json)])
+add bellow sentences to setting.json ([Cmd + Shift + P] → [Open User Settings (JSON)])
 
 ```json
     "latex-workshop.latex.recipes": [
